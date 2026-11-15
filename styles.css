@@ -1,0 +1,59 @@
+.container {
+  display: grid;
+
+  grid-template-areas:
+    "header header"
+    "banner banner"
+    "booking booking"
+    "products products"
+    "music music"
+    "map map"
+    "footer footer";
+  gap: 10px;
+}
+
+.hd {
+  text-align: center;
+  color: #f5f0e8;
+  font-size: 80px;
+  text-shadow: 2px 2px 5px black;
+  font-family: "Lobster", cursive;
+}
+header {
+  grid-area: header;
+  background-image: url("./img/backgroundcafe.jpg");
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+nav a {
+  text-decoration: none;
+  color: white;
+  margin: 30px;
+}
+.banner {
+  grid-area: banner;
+}
+.booking {
+  grid-area: booking;
+}
+.products {
+  grid-area: products;
+}
+.music {
+  grid-area: music;
+}
+.map {
+  grid-area: map;
+}
+footer {
+  grid-area: footer;
+}
+
+.products {
+  grid-area: products;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
