@@ -1,31 +1,42 @@
+body {
+  margin: 0;
+}
+
 .container {
   display: grid;
 
   grid-template-areas:
-    "header header"
-    "banner banner"
-    "booking booking"
-    "products products"
-    "music music"
-    "map map"
-    "footer footer";
-  gap: 10px;
+    "header"
+    "banner"
+    "products"
+    "booking-music"
+    "map"
+    "footer";
 }
-
+.booking-music {
+  grid-area: booking-music;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+}
 .hd {
   text-align: center;
-  color: #f5f0e8;
+  color: white;
   font-size: 80px;
   text-shadow: 2px 2px 5px black;
-  font-family: "Lobster", cursive;
+  font-family: "Great Vibes", cursive;
+}
+header nav {
+  font-size: 25px;
+  text-align: center;
+  padding-bottom: 20px;
 }
 header {
   grid-area: header;
-  background-image: url("./img/backgroundcafe.jpg");
-  height: 400px;
+  background-image: url("./img/nen.avif");
+  background-size: cover;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  flex-direction: column; /* xếp các phần tử theo chiều dọc*/
 }
 nav a {
   text-decoration: none;
@@ -34,15 +45,74 @@ nav a {
 }
 .banner {
   grid-area: banner;
+  background-image: url("./img/backgroundcafe.jpg");
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  font-size: 18px;
+  font-family: "Pacifico", cursive;
+  background-size: cover;
 }
 .booking {
-  grid-area: booking;
+  background-color: #f5eee6;
+  padding: 10px;
 }
+
+.booking form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.booking input {
+  padding: 10px;
+  border: 1px solid;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.booking button {
+  padding: 12px;
+  background-color: aqua;
+  border-radius: 15px;
+  cursor: pointer; /*chat gpt*/
+}
+
 .products {
   grid-area: products;
 }
+
 .music {
-  grid-area: music;
+  background-color: #f5eee6;
+  padding: 20px;
+  text-align: center;
+}
+
+.music img {
+  width: 100%;
+  max-height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.music audio {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.music iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  border: none;
+  border-radius: 10px;
+}
+.music h2 {
+  font-family: "Great Vibes", cursive;
+  font-size: 45px;
+  font-weight: normal;
+  color: #6f4e37;
 }
 .map {
   grid-area: map;
@@ -54,6 +124,82 @@ footer {
 .products {
   grid-area: products;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
+  padding: 20px;
+  background-color: #f5eee6;
+}
+
+.products h2 {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-family: "Great Vibes", cursive;
+  font-size: 45px;
+}
+
+.card {
+  background-color: white;
+  padding: 15px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+}
+
+.card button {
+  background-color: #6f4e37;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.card button:hover {
+  background-color: #a67c52;
+}
+
+footer {
+  grid-area: footer;
+  background-color: #6f4e37;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+footer {
+  grid-area: footer;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  background-image: url("./img/footer.png");
+  color: black;
+  padding: 20px;
+}
+
+footer iframe {
+  width: 350px;
+  height: 200px;
+  border: none;
+  border-radius: 10px;
+}
+
+footer h2 {
+  font-family: "Great Vibes", cursive;
+  font-size: 35px;
+}
+@media (max-width: 768px) {
+  .products {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .booking-music {
+    grid-template-columns: 1fr;
+  }
 }
