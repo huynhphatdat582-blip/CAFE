@@ -1,5 +1,7 @@
-body {
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .container {
@@ -10,15 +12,16 @@ body {
     "banner"
     "products"
     "booking-music"
-    "map"
     "footer";
 }
+
 .booking-music {
   grid-area: booking-music;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
 }
+
 .hd {
   text-align: center;
   color: white;
@@ -26,23 +29,30 @@ body {
   text-shadow: 2px 2px 5px black;
   font-family: "Great Vibes", cursive;
 }
+
 header nav {
   font-size: 25px;
   text-align: center;
   padding-bottom: 20px;
 }
+
 header {
   grid-area: header;
   background-image: url("./img/nen.avif");
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
-  flex-direction: column; /* xếp các phần tử theo chiều dọc*/
+  flex-direction: column;
+  padding: 20px;
 }
+
 nav a {
   text-decoration: none;
   color: white;
-  margin: 30px;
+  margin: 25px;
 }
+
 .banner {
   grid-area: banner;
   background-image: url("./img/backgroundcafe.jpg");
@@ -54,10 +64,15 @@ nav a {
   font-size: 18px;
   font-family: "Pacifico", cursive;
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 20px;
 }
+
 .booking {
   background-color: #f5eee6;
-  padding: 10px;
+  padding: 20px;
+  min-width: 0;
 }
 
 .booking form {
@@ -65,17 +80,21 @@ nav a {
   flex-direction: column;
   gap: 15px;
 }
+
 .booking input {
+  width: 100%;
   padding: 10px;
   border: 1px solid;
   border-radius: 5px;
   font-size: 16px;
 }
+
 .booking button {
+  width: 100%;
   padding: 12px;
   background-color: aqua;
   border-radius: 15px;
-  cursor: pointer; /*chat gpt*/
+  cursor: pointer;
 }
 
 .products {
@@ -86,6 +105,7 @@ nav a {
   background-color: #f5eee6;
   padding: 20px;
   text-align: center;
+  min-width: 0;
 }
 
 .music img {
@@ -108,23 +128,19 @@ nav a {
   border: none;
   border-radius: 10px;
 }
+
 .music h2 {
   font-family: "Great Vibes", cursive;
   font-size: 45px;
   font-weight: normal;
   color: #6f4e37;
-}
-.map {
-  grid-area: map;
-}
-footer {
-  grid-area: footer;
+  margin-bottom: 20px;
 }
 
 .products {
   grid-area: products;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 20px;
   padding: 20px;
   background-color: #f5eee6;
@@ -135,6 +151,7 @@ footer {
   text-align: center;
   font-family: "Great Vibes", cursive;
   font-size: 45px;
+  margin-bottom: 15px;
 }
 
 .card {
@@ -142,12 +159,21 @@ footer {
   padding: 15px;
   text-align: center;
   border-radius: 10px;
+  min-width: 0;
 }
 
 .card img {
   width: 100%;
   height: 200px;
   object-fit: contain;
+}
+
+.card h3 {
+  margin: 15px 0;
+}
+
+.card p {
+  margin-bottom: 15px;
 }
 
 .card button {
@@ -165,25 +191,23 @@ footer {
 
 footer {
   grid-area: footer;
-  background-color: #6f4e37;
-  color: white;
-  text-align: center;
-  padding: 20px;
-}
-
-footer {
-  grid-area: footer;
   display: flex;
   align-items: center;
   gap: 30px;
   background-image: url("./img/footer.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: black;
   padding: 20px;
+  text-align: left;
 }
 
 footer iframe {
   width: 350px;
+  max-width: 100%;
   height: 200px;
+  flex-shrink: 0;
   border: none;
   border-radius: 10px;
 }
@@ -191,15 +215,44 @@ footer iframe {
 footer h2 {
   font-family: "Great Vibes", cursive;
   font-size: 35px;
+  margin-bottom: 15px;
 }
-@media (max-width: 768px) {
-  .products {
-    grid-template-columns: repeat(2, 1fr);
-  }
+
+footer p {
+  margin-bottom: 10px;
 }
 
 @media (max-width: 768px) {
+  .products {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
   .booking-music {
     grid-template-columns: 1fr;
+  }
+
+  footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  footer iframe {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .products {
+    grid-template-columns: 1fr;
+  }
+
+  .hd {
+    font-size: 50px;
+  }
+
+  nav a {
+    display: inline-block;
+    margin: 8px;
   }
 }
